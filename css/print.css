@@ -1,0 +1,99 @@
+/* Print / PDF Export Styles */
+@page {
+  size: A4;
+  margin: 1.5cm 1.8cm;
+}
+
+body {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #000;
+  background: #fff;
+}
+
+.nav,
+.btn-pdf,
+.modal,
+.diagram-overlay,
+.click-hint,
+.chevron {
+  display: none !important;
+}
+
+.hero {
+  padding: 0 0 20px;
+}
+
+.section {
+  padding: 20px 0;
+}
+
+.section-alt {
+  background: #fff;
+}
+
+.hero-name {
+  font-size: 28px;
+  -webkit-text-fill-color: #1a1a2e;
+  background: none;
+}
+
+.profile-img {
+  width: 100px;
+  height: 125px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+/* Force all project cards open for print */
+.project-body {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.project-card {
+  break-inside: avoid;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  margin-bottom: 12px;
+}
+
+.project-header {
+  cursor: default;
+}
+
+.project-diagram img,
+.overview-img {
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.edu-card,
+.skill-item {
+  break-inside: avoid;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+
+.contact-item {
+  border: 1px solid #ddd;
+  background: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer {
+  border-top: 1px solid #ddd;
+}
+
+.hero-greeting,
+.section-title,
+.project-number,
+.role,
+.edu-degree {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+}
