@@ -1,99 +1,219 @@
-/* Print / PDF Export Styles */
+/* Print / PDF Export Styles
+   Uses a very tall single page to avoid pagination */
 @page {
-  size: A4;
-  margin: 1.5cm 1.8cm;
+  size: 210mm 5000mm;  /* A4 width, very tall to fit all content in one "page" */
+  margin: 1.2cm 1.5cm;
 }
 
-body {
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+html, body {
   font-size: 11px;
   line-height: 1.5;
-  color: #000;
-  background: #fff;
+  color: #000 !important;
+  background: #fff !important;
+  -webkit-text-fill-color: #000 !important;
+  overflow: visible !important;
+  height: auto !important;
 }
 
+/* Force light mode in print */
+[data-theme="dark"] {
+  --c-bg: #fff;
+  --c-surface: #fff;
+  --c-text: #000;
+  --c-text-secondary: #555;
+  --c-accent: #2563eb;
+  --c-accent-light: #eff6ff;
+  --c-border: #ddd;
+  --c-border-light: #eee;
+}
+
+/* Hide interactive elements */
 .nav,
 .btn-pdf,
+.btn-img,
 .modal,
 .diagram-overlay,
 .click-hint,
-.chevron {
+.chevron,
+.theme-toggle,
+.footer {
   display: none !important;
 }
 
+/* Reset positions & animations */
 .hero {
-  padding: 0 0 20px;
+  padding: 0 0 16px !important;
 }
 
 .section {
-  padding: 20px 0;
+  padding: 16px 0 !important;
 }
 
 .section-alt {
-  background: #fff;
+  background: #fff !important;
 }
 
+/* Hero */
 .hero-name {
-  font-size: 28px;
-  -webkit-text-fill-color: #1a1a2e;
-  background: none;
+  font-size: 26px !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #1a1a2e !important;
+  color: #1a1a2e !important;
+}
+
+.hero-greeting {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+}
+
+.hero-desc {
+  font-size: 11px !important;
+  color: #333 !important;
+  -webkit-text-fill-color: #333 !important;
 }
 
 .profile-img {
-  width: 100px;
-  height: 125px;
-  box-shadow: none;
-  border: 1px solid #ccc;
+  width: 90px !important;
+  height: 112px !important;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
 }
 
-/* Force all project cards open for print */
+.hero-content {
+  gap: 24px !important;
+}
+
+.contact-item {
+  border: 1px solid #ddd !important;
+  background: none !important;
+  font-size: 10px !important;
+  padding: 3px 8px !important;
+  color: #333 !important;
+  -webkit-text-fill-color: #333 !important;
+}
+
+/* ===== CRITICAL: Force all project cards open ===== */
 .project-body {
   max-height: none !important;
+  height: auto !important;
   overflow: visible !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: none !important;
 }
 
 .project-card {
-  break-inside: avoid;
-  border: 1px solid #ddd;
-  box-shadow: none;
-  margin-bottom: 12px;
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+  margin-bottom: 10px !important;
+  overflow: visible !important;
 }
 
 .project-header {
-  cursor: default;
+  cursor: default !important;
+  padding: 10px 14px !important;
+}
+
+.project-role,
+.project-achievements {
+  padding: 0 14px 10px !important;
+}
+
+/* Images */
+.project-diagram {
+  margin: 0 14px 14px !important;
 }
 
 .project-diagram img,
 .overview-img {
-  max-height: 280px;
-  object-fit: contain;
+  max-height: 260px !important;
+  object-fit: contain !important;
+  width: auto !important;
+  max-width: 100% !important;
 }
 
+.overview-card {
+  margin: 12px 0 16px !important;
+}
+
+/* No page breaks anywhere */
 .edu-card,
-.skill-item {
+.skill-item,
+.project-card,
+.overview-card,
+.section {
   break-inside: avoid;
-  border: 1px solid #ddd;
-  box-shadow: none;
+  page-break-inside: avoid;
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
 }
 
-.contact-item {
-  border: 1px solid #ddd;
-  background: none;
+.section {
+  border: none !important;
 }
 
-a {
-  color: #000;
-  text-decoration: none;
+/* Typography */
+.section-title {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+  font-size: 12px !important;
+  margin-bottom: 16px !important;
 }
 
-.footer {
-  border-top: 1px solid #ddd;
-}
-
-.hero-greeting,
-.section-title,
 .project-number,
 .role,
 .edu-degree {
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+  background: #eff6ff !important;
+}
+
+.project-title {
+  font-size: 13px !important;
+}
+
+.project-achievements li,
+.project-role p {
+  font-size: 11px !important;
+}
+
+.company {
+  font-size: 16px !important;
+}
+
+a {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  text-decoration: none !important;
+}
+
+.category-label {
+  font-size: 11px !important;
+  margin: 16px 0 8px !important;
+}
+
+.skills-grid { gap: 8px !important; }
+.skill-item { padding: 12px 8px !important; }
+.skill-icon { width: 32px !important; height: 32px !important; }
+.edu-card { padding: 16px !important; }
+
+/* Show all animated elements */
+.fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.project-role .label,
+.project-achievements .label {
   color: #2563eb !important;
   -webkit-text-fill-color: #2563eb !important;
 }

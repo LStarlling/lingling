@@ -76,6 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
   if (firstCard) firstCard.classList.add('open');
 });
 
+// --- Export PDF (open all cards, print, restore) ---
+function exportPDF() {
+  const cards = document.querySelectorAll('.project-card');
+  const wasOpen = new Set();
+  cards.forEach(card => {
+    if (card.classList.contains('open')) wasOpen.add(card);
+    card.classList.add('open');
+  });
+
+  // Small delay for layout to settle, then print
+  setTimeout(() => {
+    window.print();
+    // Restore after print dialog closes
+    setTimeout(() => {
+      cards.forEach(card => {
+        if (!wasOpen.has(card)) card.classList.remove('open');
+      });
+    }, 500);
+  }, 100);
+}
+
 // --- Dark mode toggle ---
 const themeToggle = document.getElementById('themeToggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
