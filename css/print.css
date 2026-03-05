@@ -100,6 +100,13 @@ html, body {
   -webkit-text-fill-color: #333 !important;
 }
 
+.contact-homepage {
+  display: inline-flex !important;
+  color: #2563eb !important;
+  -webkit-text-fill-color: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
 /* ===== CRITICAL: Force all project cards open ===== */
 .project-body {
   max-height: none !important;
@@ -128,21 +135,28 @@ html, body {
   padding: 0 14px 10px !important;
 }
 
-/* Images */
+/* Images: full width, no height restriction */
 .project-diagram {
   margin: 0 14px 14px !important;
 }
 
 .project-diagram img,
 .overview-img {
-  max-height: 260px !important;
-  object-fit: contain !important;
-  width: auto !important;
+  width: 100% !important;
   max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
 }
 
 .overview-card {
   margin: 12px 0 16px !important;
+}
+
+/* Show homepage URL in print */
+.contact-homepage::after {
+  content: " lstarlling.github.io/lingling" !important;
+  font-size: 9px !important;
 }
 
 /* No page breaks anywhere */

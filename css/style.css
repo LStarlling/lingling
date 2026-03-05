@@ -205,6 +205,11 @@ body {
   opacity: 0.6;
 }
 
+/* Homepage link: hidden on web (already on homepage), shown in print */
+.contact-homepage {
+  display: none;
+}
+
 .hero-photo {
   flex-shrink: 0;
 }
