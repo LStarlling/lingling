@@ -740,6 +740,61 @@ body {
   .nav-link:not(.btn-pdf) { display: none; }
 }
 
+/* ============ Dark Mode ============ */
+[data-theme="dark"] {
+  --c-bg: #0d1117;
+  --c-surface: #161b22;
+  --c-text: #e6edf3;
+  --c-text-secondary: #8b949e;
+  --c-accent: #58a6ff;
+  --c-accent-light: rgba(88, 166, 255, 0.1);
+  --c-accent-dark: #79c0ff;
+  --c-border: #30363d;
+  --c-border-light: #21262d;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(13, 17, 23, 0.85);
+}
+
+[data-theme="dark"] .hero-name {
+  background: linear-gradient(135deg, #e6edf3 0%, #58a6ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+[data-theme="dark"] .project-diagram {
+  background: #0d1117;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--c-border);
+  color: var(--c-text-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  margin-left: 4px;
+}
+
+.theme-toggle:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+.icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: block; }
+
 /* ============ Scroll Animations ============ */
 .fade-in {
   opacity: 0;

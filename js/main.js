@@ -76,6 +76,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (firstCard) firstCard.classList.add('open');
 });
 
+// --- Dark mode toggle ---
+const themeToggle = document.getElementById('themeToggle');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function setTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+// Init: check saved preference, then system preference
+const saved = localStorage.getItem('theme');
+if (saved) {
+  setTheme(saved === 'dark');
+} else {
+  setTheme(prefersDark.matches);
+}
+
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  setTheme(!isDark);
+});
+
 // --- Smooth active nav link ---
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
